@@ -4,6 +4,8 @@
 
 A task runner for [@nrwl/nx](https://nx.dev/react) that uses an Azure Blob Storage as a remote cache. This enables all team members and CI servers to share a single cache. The concept and benefits of [computation caching](https://nx.dev/angular/guides/computation-caching) are explained in the NX documentation.
 
+This package was built with [nx-remotecache-custom](https://www.npmjs.com/package/nx-remotecache-azure) 🙌
+
 ## Setup
 
 ```
@@ -44,8 +46,8 @@ Running builds should now the storage or retrieval from the remote cache:
 ```
 ------------------------------------------------------------------------
 Built Angular Package
- - from: /Users/user/example-workspace/libs/example-lib
- - to:   /Users/user/example-workspace/dist/libs/example-lib
+ - from: /Users/name/example-workspace/libs/example-lib
+ - to:   /Users/name/example-workspace/dist/libs/example-lib
 ------------------------------------------------------------------------
 ------------------------------------------------------------------------
 Stored output to remote cache: Azure Blob Storage
