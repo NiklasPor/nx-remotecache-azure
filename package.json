@@ -30,6 +30,6 @@
     "chalk": "^4.1.0"
   },
   "peerDependencies": {
-    "nx-remotecache-azure": "^0.0.1-a"
+    "nx-remotecache-custom": "^0.0.1"
   }
 }
