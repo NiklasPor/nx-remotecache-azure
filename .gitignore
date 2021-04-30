@@ -1,0 +1,6 @@
+node_modules
+index.js
+*.tgz
+.verdaccio-db.json
+dist
+.DS_STORE
