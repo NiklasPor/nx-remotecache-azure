@@ -41,7 +41,7 @@ npm install --save-dev nx-remotecache-azure
 
 ## Run it 🚀
 
-Running builds should now show the storage or retrieval from the remote cache:
+Running tasks should now show the storage or retrieval from the remote cache:
 
 ```
 ------------------------------------------------------------------------
@@ -53,4 +53,22 @@ Built Angular Package
 Stored output to remote cache: Azure Blob Storage
 Hash: d3d2bea71ea0f3004304c5cc88cf91be50b02bb636ebbdfcc927626fd8edf1ae
 ------------------------------------------------------------------------
+```
+
+## Advanced Configuration
+
+| Option    | Description                                                                      |
+| --------- | -------------------------------------------------------------------------------- |
+| `verbose` | Set to receive full stack traces whenever errors occur. Best used for debugging. |
+| `silent`  | Set to mute success and info logs.                                               |
+
+```json
+"tasksRunnerOptions": {
+  "default": {
+    "options": {
+      "verbose": true,
+      "silent": true
+    }
+  }
+}
 ```
