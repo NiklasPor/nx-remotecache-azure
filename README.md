@@ -41,7 +41,7 @@ npm install --save-dev nx-remotecache-azure
 
 ## Run it 🚀
 
-Running builds should now the storage or retrieval from the remote cache:
+Running builds should now show the storage or retrieval from the remote cache:
 
 ```
 ------------------------------------------------------------------------
