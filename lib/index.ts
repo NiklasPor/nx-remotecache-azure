@@ -35,6 +35,24 @@ function getServiceClient(options: AzureBlobRunnerOptions) {
   );
 }
 
+async function getContainerClient(
+  serviceClient: BlobServiceClient,
+  options: AzureBlobRunnerOptions
+) {
+  const container = getEnv(ENV_CONTAINER) ?? options.container;
+
+  if (!container) {
+    throw Error(
+      "Did not pass valid container. Supply the container either via env or nx.json."
+    );
+  }
+
+  const containerClient = serviceClient.getContainerClient(container);
+  await containerClient.createIfNotExists();
+
+  return containerClient;
+}
+
 interface AzureBlobRunnerOptions {
   connectionString: string;
   accountKey: string;
@@ -45,16 +63,7 @@ interface AzureBlobRunnerOptions {
 
 export default createCustomRunner<AzureBlobRunnerOptions>(async (options) => {
   const serviceClient = getServiceClient(options);
-  const container = getEnv(ENV_CONTAINER) ?? options.container;
-
-  if (!container) {
-    throw Error(
-      "Did not pass valid container. Supply the container either via env or nx.json."
-    );
-  }
-
-  const containerClient = serviceClient.getContainerClient(options.container);
-  await containerClient.createIfNotExists();
+  const containerClient = await getContainerClient(serviceClient, options);
 
   const blob = (filename: string) =>
     containerClient.getBlockBlobClient(filename);
