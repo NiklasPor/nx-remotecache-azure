@@ -1,6 +1,6 @@
 import {
-  BlobServiceClient,
   StorageSharedKeyCredential,
+  BlockBlobClient
 } from "@azure/storage-blob";
 import { createCustomRunner } from "nx-remotecache-custom";
 
@@ -12,33 +12,11 @@ const ENV_AZURE_URL = "NX_CACHE_AZURE_URL";
 
 const getEnv = (key: string) => process.env[key];
 
-function getServiceClient(options: AzureBlobRunnerOptions) {
+function getBlockBlobClient(filename: string, options :AzureBlobRunnerOptions) {
   const connectionString =
     getEnv(ENV_CONNECTION_STRING) ?? options.connectionString;
   const accountKey = getEnv(ENV_ACCOUNT_KEY) ?? options.accountKey;
   const accountName = getEnv(ENV_ACCOUNT_NAME) ?? options.accountName;
-
-  if (connectionString) {
-    return BlobServiceClient.fromConnectionString(connectionString);
-  }
-
-  if (accountKey && accountName) {
-    const defaultUrl = `https://${accountName}.blob.core.windows.net`;
-    const url = getEnv(ENV_AZURE_URL) ?? options.azureUrl ?? defaultUrl;
-
-    const credential = new StorageSharedKeyCredential(accountName, accountKey);
-    return new BlobServiceClient(url, credential);
-  }
-
-  throw Error(
-    `Did not pass valid credentials. Supply them either via env or nx.json.`
-  );
-}
-
-async function getContainerClient(
-  serviceClient: BlobServiceClient,
-  options: AzureBlobRunnerOptions
-) {
   const container = getEnv(ENV_CONTAINER) ?? options.container;
 
   if (!container) {
@@ -46,11 +24,23 @@ async function getContainerClient(
       "Did not pass valid container. Supply the container either via env or nx.json."
     );
   }
+  
+  if (connectionString) {
+    return new BlockBlobClient(connectionString, container, filename);
+  }
 
-  const containerClient = serviceClient.getContainerClient(container);
-  await containerClient.createIfNotExists();
+  if (accountKey && accountName) {
+    const defaultUrl = `https://${accountName}.blob.core.windows.net`;
+    const basePath = getEnv(ENV_AZURE_URL) ?? options.azureUrl ?? defaultUrl;
+    const fullUrl = `${basePath}/${container}/${filename}`;
 
-  return containerClient;
+    const credential = new StorageSharedKeyCredential(accountName, accountKey);
+    return new BlockBlobClient(fullUrl, credential);
+  }
+
+  throw Error(
+    `Did not pass valid credentials. Supply them either via env or nx.json.`
+  );
 }
 
 interface AzureBlobRunnerOptions {
@@ -62,11 +52,8 @@ interface AzureBlobRunnerOptions {
 }
 
 export default createCustomRunner<AzureBlobRunnerOptions>(async (options) => {
-  const serviceClient = getServiceClient(options);
-  const containerClient = await getContainerClient(serviceClient, options);
-
   const blob = (filename: string) =>
-    containerClient.getBlockBlobClient(filename);
+    getBlockBlobClient(filename, options);
 
   return {
     name: "Azure Blob Storage",
