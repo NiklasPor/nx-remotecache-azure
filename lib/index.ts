@@ -1,6 +1,6 @@
 import {
+  BlockBlobClient,
   StorageSharedKeyCredential,
-  BlockBlobClient
 } from "@azure/storage-blob";
 import { createCustomRunner } from "nx-remotecache-custom";
 
@@ -12,7 +12,7 @@ const ENV_AZURE_URL = "NX_CACHE_AZURE_URL";
 
 const getEnv = (key: string) => process.env[key];
 
-function getBlockBlobClient(filename: string, options :AzureBlobRunnerOptions) {
+function getBlockBlobClient(filename: string, options: AzureBlobRunnerOptions) {
   const connectionString =
     getEnv(ENV_CONNECTION_STRING) ?? options.connectionString;
   const accountKey = getEnv(ENV_ACCOUNT_KEY) ?? options.accountKey;
@@ -24,7 +24,7 @@ function getBlockBlobClient(filename: string, options :AzureBlobRunnerOptions) {
       "Did not pass valid container. Supply the container either via env or nx.json."
     );
   }
-  
+
   if (connectionString) {
     return new BlockBlobClient(connectionString, container, filename);
   }
@@ -52,8 +52,7 @@ interface AzureBlobRunnerOptions {
 }
 
 export default createCustomRunner<AzureBlobRunnerOptions>(async (options) => {
-  const blob = (filename: string) =>
-    getBlockBlobClient(filename, options);
+  const blob = (filename: string) => getBlockBlobClient(filename, options);
 
   return {
     name: "Azure Blob Storage",
