@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 0.0.7
+
+### Fixed
+
+- #1 Fix problems when connecting via connection string – thanks to @Sobuno
+
 ## 0.0.6
 
 ### Fixed
