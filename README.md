@@ -37,8 +37,6 @@ npm install --save-dev nx-remotecache-azure
 }
 ```
 
-> Note: If `nx-remotecache-azure` is not finding a container with the specificed name, it will create a new one.
-
 ## Run it 🚀
 
 Running tasks should now show the storage or retrieval from the remote cache:
