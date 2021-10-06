@@ -12,7 +12,7 @@ This package was built with [nx-remotecache-custom](https://www.npmjs.com/packag
 npm install --save-dev nx-remotecache-azure
 ```
 
-| Parameter         | Description                                                             |  Environment Variable              | `nx.json`          |
+| Parameter         | Description                                                             |  Environment Variable / .env       | `nx.json`          |
 | ----------------- | ----------------------------------------------------------------------- | ---------------------------------- | ------------------ |
 | Connection String | Connect to an Azure Storage blob via a single URL.                      | `NX_CACHE_AZURE_CONNECTION_STRING` | `connectionString` |
 | Account Name      | Use together with Account Key for Azure Credentials Authentication      | `NX_CACHE_AZURE_ACCOUNT_NAME`      | `accountName`      |
@@ -57,17 +57,19 @@ Hash: d3d2bea71ea0f3004304c5cc88cf91be50b02bb636ebbdfcc927626fd8edf1ae
 
 ## Advanced Configuration
 
-| Option    | Description                                                                      |
-| --------- | -------------------------------------------------------------------------------- |
-| `verbose` | Set to receive full stack traces whenever errors occur. Best used for debugging. |
-| `silent`  | Set to mute success and info logs.                                               |
+| Option       | Description                                                                                           |
+| ------------ | ----------------------------------------------------------------------------------------------------- |
+| `verbose`    | Set to receive full stack traces whenever errors occur. Best used for debugging. **Default:** `false` |
+| `silent`     | Set to mute success and info logs. **Default:** `false`                                               |
+| `dotenv`     | Set to `false` to disable reading `.env` into `process.env`. **Default:** `true`                      |
+| `dotenvPath` | Set to read `.env` files from a different folder.                                                     |
 
 ```json
 "tasksRunnerOptions": {
   "default": {
     "options": {
       "verbose": true,
-      "silent": true
+      "silent": true,
     }
   }
 }
