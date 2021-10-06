@@ -1,6 +1,6 @@
 {
   "name": "nx-remotecache-azure",
-  "version": "0.0.8",
+  "version": "1.0.0",
   "description": "Remote caching for @nrwl/nx using Azure Blob Storage",
   "main": "index.js",
   "typings": "index.d.ts",
