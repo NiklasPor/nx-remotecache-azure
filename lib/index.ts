@@ -2,7 +2,7 @@ import {
   BlockBlobClient,
   StorageSharedKeyCredential,
 } from "@azure/storage-blob";
-import { createCustomRunner } from "nx-remotecache-custom";
+import { createCustomRunner, initEnv } from "nx-remotecache-custom";
 
 const ENV_CONNECTION_STRING = "NX_CACHE_AZURE_CONNECTION_STRING";
 const ENV_ACCOUNT_KEY = "NX_CACHE_AZURE_ACCOUNT_KEY";
@@ -52,6 +52,7 @@ interface AzureBlobRunnerOptions {
 }
 
 export default createCustomRunner<AzureBlobRunnerOptions>(async (options) => {
+  initEnv(options);
   const blob = (filename: string) => getBlockBlobClient(filename, options);
 
   return {
