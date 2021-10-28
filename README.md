@@ -72,3 +72,12 @@ Hash: d3d2bea71ea0f3004304c5cc88cf91be50b02bb636ebbdfcc927626fd8edf1ae
   }
 }
 ```
+
+## All Custom Runners
+
+| Runner                                                                     | Storage             |
+| -------------------------------------------------------------------------- | ------------------- |
+| [nx-remotecache-azure](https://www.npmjs.com/package/nx-remotecache-azure) |  Azure Blob Storage |
+| [nx-remotecache-minio](https://www.npmjs.com/package/nx-remotecache-minio) |  MinIO Storage      |
+
+
