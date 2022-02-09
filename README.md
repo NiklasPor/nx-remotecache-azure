@@ -55,19 +55,21 @@ Hash: d3d2bea71ea0f3004304c5cc88cf91be50b02bb636ebbdfcc927626fd8edf1ae
 
 ## Advanced Configuration
 
-| Option       | Description                                                                                           |
-| ------------ | ----------------------------------------------------------------------------------------------------- |
-| `verbose`    | Set to receive full stack traces whenever errors occur. Best used for debugging. **Default:** `false` |
-| `silent`     | Set to mute success and info logs. **Default:** `false`                                               |
-| `dotenv`     | Set to `false` to disable reading `.env` into `process.env`. **Default:** `true`                      |
-| `dotenvPath` | Set to read `.env` files from a different folder.                                                     |
+| Option       | Environment Variable / .env | Description                                                                                           |
+| ------------ | --------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `name`       | `NX_CACHE_NAME`             | Set to provide task runner name for logging. Overrides name provided in implementation.               |
+| `verbose`    |                             | Set to receive full stack traces whenever errors occur. Best used for debugging. **Default:** `false` |
+| `silent`     |                             | Set to mute success and info logs. **Default:** `false`                                               |
+| `dotenv`     |                             | Set to `false` to disable reading `.env` into `process.env`. **Default:** `true`                      |
+| `dotenvPath` |                             | Set to read `.env` files from a different folder.                                                     |
 
 ```json
 "tasksRunnerOptions": {
   "default": {
     "options": {
+      "name": "My Storage",
       "verbose": true,
-      "silent": true,
+      "silent": true
     }
   }
 }
