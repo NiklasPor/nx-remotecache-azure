@@ -41,6 +41,6 @@
     "@azure/storage-blob": "^12.5.0",
     "adm-zip": "^0.5.5",
     "chalk": "^4.1.0",
-    "nx-remotecache-custom": "^1.0.0"
+    "nx-remotecache-custom": "^1.1.0"
   }
 }
