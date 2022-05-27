@@ -58,7 +58,8 @@ export default createCustomRunner<AzureBlobRunnerOptions>(async (options) => {
   return {
     name: "Azure Blob Storage",
     fileExists: (filename) => blob(filename).exists(),
-    retrieveFile: (filename) => blob(filename).downloadToBuffer(),
-    storeFile: (filename, buffer) => blob(filename).uploadData(buffer),
+    retrieveFile: async (filename) =>
+      (await blob(filename).download()).readableStreamBody!,
+    storeFile: (filename, stream) => blob(filename).uploadStream(stream),
   };
 });

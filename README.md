@@ -2,9 +2,9 @@
 
 # nx-remotecache-azure
 
-A task runner for [@nrwl/nx](https://nx.dev/react) that uses an Azure Blob Storage as a remote cache. This enables all team members and CI servers to share a single cache. The concept and benefits of [computation caching](https://nx.dev/angular/guides/computation-caching) are explained in the NX documentation.
+A task runner for [@nrwl/nx](https://nx.dev) that uses an Azure Blob Storage as a remote cache. This enables all team members and CI servers to share a single cache. The concept and benefits of [computation caching](https://nx.dev/angular/guides/computation-caching) are explained in the NX documentation.
 
-This package was built with [nx-remotecache-custom](https://www.npmjs.com/package/nx-remotecache-azure) 🙌
+This package was built with [nx-remotecache-custom](https://www.npmjs.com/package/nx-remotecache-custom) 🙌
 
 ## Setup
 
@@ -81,5 +81,3 @@ Hash: d3d2bea71ea0f3004304c5cc88cf91be50b02bb636ebbdfcc927626fd8edf1ae
 | -------------------------------------------------------------------------- | ------------------- |
 | [nx-remotecache-azure](https://www.npmjs.com/package/nx-remotecache-azure) |  Azure Blob Storage |
 | [nx-remotecache-minio](https://www.npmjs.com/package/nx-remotecache-minio) |  MinIO Storage      |
-
-
