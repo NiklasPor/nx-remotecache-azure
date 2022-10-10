@@ -14,11 +14,11 @@ npm install --save-dev nx-remotecache-azure
 
 | Parameter         | Description                                                             |  Environment Variable / .env       | `nx.json`          |
 | ----------------- | ----------------------------------------------------------------------- | ---------------------------------- | ------------------ |
-| Connection String | Connect to an Azure Storage blob via a single URL.                      | `NX_CACHE_AZURE_CONNECTION_STRING` | `connectionString` |
-| Account Name      | Use together with Account Key for Azure Credentials Authentication      | `NX_CACHE_AZURE_ACCOUNT_NAME`      | `accountName`      |
-| Account Key       | Use together with Account Name for Azure Credentials Authentication     | `NX_CACHE_AZURE_ACCOUNT_KEY`       | `accountKey`       |
-| Container         | Required. Specify which container should be used for storing the cache. | `NX_CACHE_AZURE_CONTAINER`         | `container`        |
-| Azure URL         | Optional. Can be used to overwrite Azure URL for local debugging.       | `NX_CACHE_AZURE_URL`               | `azureUrl`         |
+| Connection String | Connect to an Azure Storage blob via a single URL.                      | `NXCACHE_AZURE_CONNECTION_STRING` | `connectionString` |
+| Account Name      | Use together with Account Key for Azure Credentials Authentication      | `NXCACHE_AZURE_ACCOUNT_NAME`      | `accountName`      |
+| Account Key       | Use together with Account Name for Azure Credentials Authentication     | `NXCACHE_AZURE_ACCOUNT_KEY`       | `accountKey`       |
+| Container         | Required. Specify which container should be used for storing the cache. | `NXCACHE_AZURE_CONTAINER`         | `container`        |
+| Azure URL         | Optional. Can be used to overwrite Azure URL for local debugging.       | `NXCACHE_AZURE_URL`               | `azureUrl`         |
 
 ```json
 {
@@ -57,7 +57,7 @@ Hash: d3d2bea71ea0f3004304c5cc88cf91be50b02bb636ebbdfcc927626fd8edf1ae
 
 | Option       | Environment Variable / .env | Description                                                                                           |
 | ------------ | --------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `name`       | `NX_CACHE_NAME`             | Set to provide task runner name for logging. Overrides name provided in implementation.               |
+| `name`       | `NXCACHE_NAME`             | Set to provide task runner name for logging. Overrides name provided in implementation.               |
 | `verbose`    |                             | Set to receive full stack traces whenever errors occur. Best used for debugging. **Default:** `false` |
 | `silent`     |                             | Set to mute success and info logs. **Default:** `false`                                               |
 | `dotenv`     |                             | Set to `false` to disable reading `.env` into `process.env`. **Default:** `true`                      |
