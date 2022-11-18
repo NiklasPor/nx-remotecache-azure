@@ -15,6 +15,7 @@ npm install --save-dev nx-remotecache-azure
 | Parameter         | Description                                                             |  Environment Variable / .env       | `nx.json`          |
 | ----------------- | ----------------------------------------------------------------------- | ---------------------------------- | ------------------ |
 | Connection String | Connect to an Azure Storage blob via a single URL.                      | `NXCACHE_AZURE_CONNECTION_STRING` | `connectionString` |
+| Container SAS URL | Connect to an Azure Storage blob via a single container SAS URL.        | `NXCACHE_AZURE_SAS_URL`           | `sasUrl`           |
 | Account Name      | Use together with Account Key for Azure Credentials Authentication      | `NXCACHE_AZURE_ACCOUNT_NAME`      | `accountName`      |
 | Account Key       | Use together with Account Name for Azure Credentials Authentication     | `NXCACHE_AZURE_ACCOUNT_KEY`       | `accountKey`       |
 | Container         | Required. Specify which container should be used for storing the cache. | `NXCACHE_AZURE_CONTAINER`         | `container`        |

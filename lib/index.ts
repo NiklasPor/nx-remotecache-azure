@@ -1,5 +1,6 @@
 import {
   BlockBlobClient,
+  ContainerClient,
   StorageSharedKeyCredential,
 } from "@azure/storage-blob";
 import { createCustomRunner, initEnv } from "nx-remotecache-custom";
@@ -9,6 +10,7 @@ const ENV_ACCOUNT_KEY = "NXCACHE_AZURE_ACCOUNT_KEY";
 const ENV_ACCOUNT_NAME = "NXCACHE_AZURE_ACCOUNT_NAME";
 const ENV_CONTAINER = "NXCACHE_AZURE_CONTAINER";
 const ENV_AZURE_URL = "NXCACHE_AZURE_URL";
+const ENV_SAS_URL = "NXCACHE_AZURE_SAS_URL";
 
 const getEnv = (key: string) => process.env[key];
 
@@ -18,6 +20,11 @@ function getBlockBlobClient(filename: string, options: AzureBlobRunnerOptions) {
   const accountKey = getEnv(ENV_ACCOUNT_KEY) ?? options.accountKey;
   const accountName = getEnv(ENV_ACCOUNT_NAME) ?? options.accountName;
   const container = getEnv(ENV_CONTAINER) ?? options.container;
+  const sasUrl = getEnv(ENV_SAS_URL) ?? options.sasUrl;
+
+  if(sasUrl) {
+    return new ContainerClient(sasUrl).getBlockBlobClient(filename);
+  }
 
   if (!container) {
     throw Error(
@@ -49,6 +56,7 @@ interface AzureBlobRunnerOptions {
   accountName: string;
   container: string;
   azureUrl: string;
+  sasUrl: string;
 }
 
 export default createCustomRunner<AzureBlobRunnerOptions>(async (options) => {
