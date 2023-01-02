@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 3.1.0
+
+### Added
+
+- Container access can now be configured with a SAS-Container-URL. Provide it via env `NXCACHE_AZURE_SAS_URL` or directly inside the options with the `sasUrl` attribute. Thanks to [@kraiz](https://github.com/kraiz).
+
 ## 3.0.0
 
 ### Breaking Changes
