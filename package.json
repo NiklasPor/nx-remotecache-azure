@@ -1,14 +1,14 @@
 {
   "name": "nx-remotecache-azure",
-  "version": "3.1.0",
+  "version": "4.0.0",
   "description": "Remote caching for @nrwl/nx using Azure Blob Storage",
   "main": "index.js",
   "typings": "index.d.ts",
   "scripts": {
     "build": "rm -rf dist && tsc && cp package.json dist/package.json && cp README.md dist/README.md && cp CHANGELOG.md dist/CHANGELOG.md",
-    "release": "npm run build && cd dist && npm publish && cd ..",
-    "local-release": "npm run build && cd dist && npm publish --registry=http://localhost:4873/ && cd ..",
-    "link": "npm run build && cd dist && npm link && cd .."
+    "release": "pnpm run build && cd dist && pnpm publish && cd ..",
+    "local-release": "pnpm run build && cd dist && pnpm publish --registry=http://localhost:4873/ && cd ..",
+    "link": "pnpm run build && cd dist && pnpm link && cd .."
   },
   "repository": {
     "type": "git",
@@ -32,12 +32,15 @@
   },
   "homepage": "https://github.com/NiklasPor/nx-remotecache-azure#readme",
   "devDependencies": {
-    "@nrwl/workspace": "^14.1.9",
+    "@nx/workspace": "^16.0.0",
     "@types/yargs": "^16.0.1",
     "typescript": "^4.1.3"
   },
   "dependencies": {
     "@azure/storage-blob": "^12.12.0",
-    "nx-remotecache-custom": "^3.0.0"
+    "nx-remotecache-custom": "^4.0.0"
+  },
+  "peerDependencies": {
+    "@nx/workspace": ">=16.0.0"
   }
 }

@@ -9,7 +9,7 @@
     "noFallthroughCasesInSwitch": true,
     "esModuleInterop": true,
     "outDir": "dist",
-    "declaration": true
+    "declaration": false
   },
   "include": ["lib/**.ts"]
 }

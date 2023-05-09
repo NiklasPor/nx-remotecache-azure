@@ -22,7 +22,7 @@ function getBlockBlobClient(filename: string, options: AzureBlobRunnerOptions) {
   const container = getEnv(ENV_CONTAINER) ?? options.container;
   const sasUrl = getEnv(ENV_SAS_URL) ?? options.sasUrl;
 
-  if(sasUrl) {
+  if (sasUrl) {
     return new ContainerClient(sasUrl).getBlockBlobClient(filename);
   }
 
