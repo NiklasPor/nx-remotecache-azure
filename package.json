@@ -1,6 +1,6 @@
 {
   "name": "nx-remotecache-azure",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "Remote caching for @nrwl/nx using Azure Blob Storage",
   "main": "index.js",
   "typings": "index.d.ts",
@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@azure/storage-blob": "^12.12.0",
-    "nx-remotecache-custom": "^4.0.0"
+    "nx-remotecache-custom": "^4.1.0"
   },
   "peerDependencies": {
     "@nx/workspace": ">=16.0.0"

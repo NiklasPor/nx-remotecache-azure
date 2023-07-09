@@ -12,8 +12,8 @@ This package was built with [nx-remotecache-custom](https://www.npmjs.com/packag
 npm install --save-dev nx-remotecache-azure
 ```
 
-| Parameter         | Description                                                             |  Environment Variable / .env       | `nx.json`          |
-| ----------------- | ----------------------------------------------------------------------- | ---------------------------------- | ------------------ |
+| Parameter         | Description                                                             |  Environment Variable / .env      | `nx.json`          |
+| ----------------- | ----------------------------------------------------------------------- | --------------------------------- | ------------------ |
 | Connection String | Connect to an Azure Storage blob via a single URL.                      | `NXCACHE_AZURE_CONNECTION_STRING` | `connectionString` |
 | Container SAS URL | Connect to an Azure Storage blob via a single container SAS URL.        | `NXCACHE_AZURE_SAS_URL`           | `sasUrl`           |
 | Account Name      | Use together with Account Key for Azure Credentials Authentication      | `NXCACHE_AZURE_ACCOUNT_NAME`      | `accountName`      |
@@ -58,9 +58,11 @@ Hash: d3d2bea71ea0f3004304c5cc88cf91be50b02bb636ebbdfcc927626fd8edf1ae
 
 | Option       | Environment Variable / .env | Description                                                                                           |
 | ------------ | --------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `name`       | `NXCACHE_NAME`             | Set to provide task runner name for logging. Overrides name provided in implementation.               |
+| `name`       | `NXCACHE_NAME`              | Set to provide task runner name for logging. Overrides name provided in implementation.               |
 | `verbose`    |                             | Set to receive full stack traces whenever errors occur. Best used for debugging. **Default:** `false` |
 | `silent`     |                             | Set to mute success and info logs. **Default:** `false`                                               |
+| `read`       | `NXCACHE_READ`              | Set to enable / disable reading from the remote cache. **Default:** `true`                            |
+| `write`      | `NXCACHE_WRITE`             | Set to enable / disable writing to the remote cache. **Default:** `true`                              |
 | `dotenv`     |                             | Set to `false` to disable reading `.env` into `process.env`. **Default:** `true`                      |
 | `dotenvPath` |                             | Set to read `.env` files from a different folder.                                                     |
 
