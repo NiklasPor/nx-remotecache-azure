@@ -9,6 +9,11 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 - Added Azure Active Directory authentication. Enable it via `NXCACHE_AZURE_AD_AUTH` flag or directly with the `adAuth` attribute. Thanks to [@pearsonradu](https://github.com/pearsonradu).
 
+### Fixed
+
+- Support for Nx version 16.6.0+ by removing the machine id from stored artifacts.
+- `read` and `write` flags now prioritize environment variables over the `nx.json`.
+
 ## 4.1.0
 
 ### Added
