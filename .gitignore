@@ -4,3 +4,4 @@ index.js
 .verdaccio-db.json
 dist
 .DS_STORE
+.idea

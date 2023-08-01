@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 4.2.0
+
+### Added
+
+- Added Azure Active Directory authentication. Enable it via `NXCACHE_AZURE_AD_AUTH` flag or directly with the `adAuth` attribute. Thanks to [@pearsonradu](https://github.com/pearsonradu).
+
 ## 4.1.0
 
 ### Added
