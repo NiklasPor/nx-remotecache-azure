@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 4.2.2
+
+## Chore
+
+- Dependy bump & cleanup.
+
 ## 4.2.1
 
 ### Fixed
