@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -12,8 +12,8 @@ dependencies:
     specifier: ^12.15.0
     version: 12.15.0
   nx-remotecache-custom:
-    specifier: ^4.2.0
-    version: 4.2.0(@nx/workspace@16.0.0)
+    specifier: ^4.2.1
+    version: 4.2.1(@nx/workspace@16.0.0)
 
 devDependencies:
   '@nx/workspace':
@@ -1063,8 +1063,8 @@ packages:
     dependencies:
       path-key: 3.1.1
 
-  /nx-remotecache-custom@4.2.0(@nx/workspace@16.0.0):
-    resolution: {integrity: sha512-wuM248V8ExR50X6nfaDhaH0bp2iGqQ9TTqiAPqXRmQ0xnQDFuGvb/vN0EqTGFOSzohHmZO+gIcRDryB+dLWWWg==}
+  /nx-remotecache-custom@4.2.1(@nx/workspace@16.0.0):
+    resolution: {integrity: sha512-gx0qEPWZ0pitu0dihWPXqqVip8AGg1OQNLVmn4489qK/oenEGOi6DP/qhMnKeNC30rG4RjH+4RnPNKL5e2bDGg==}
     peerDependencies:
       '@nx/workspace': '>=16.0.0'
     dependencies:
