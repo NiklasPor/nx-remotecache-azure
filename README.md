@@ -6,6 +6,13 @@ A task runner for [@nrwl/nx](https://nx.dev) that uses an Azure Blob Storage as 
 
 This package was built with [nx-remotecache-custom](https://www.npmjs.com/package/nx-remotecache-custom) 🙌
 
+## Compatability
+
+|  Nx        | Remote Cache |
+| ---------- | ------------ |
+|  >= 16.9.0 |  >= 5.0.0    |
+|  < 16.9.0  |  < 5.0.0     |
+
 ## Setup
 
 ```
@@ -13,7 +20,7 @@ npm install --save-dev nx-remotecache-azure
 ```
 
 | Parameter         | Description                                                               | Environment Variable / .env       | `nx.json`          |
-|-------------------|---------------------------------------------------------------------------|---------------------------------- |--------------------|
+| ----------------- | ------------------------------------------------------------------------- | --------------------------------- | ------------------ |
 | Connection String | Connect to an Azure Storage blob via a single URL.                        | `NXCACHE_AZURE_CONNECTION_STRING` | `connectionString` |
 | Container SAS URL | Connect to an Azure Storage blob via a single container SAS URL.          | `NXCACHE_AZURE_SAS_URL`           | `sasUrl`           |
 | Account Name      | Use together with Account Key for Azure Credentials Authentication        | `NXCACHE_AZURE_ACCOUNT_NAME`      | `accountName`      |
@@ -31,7 +38,7 @@ npm install --save-dev nx-remotecache-azure
         // All of the azure specific options can also be inserted via environment variables! ⬆️
         "accountName": "MyAzureAccountName",
         "accountKey": "my-azure-account-key-11223-22..",
-        "container": "nx",
+        "container": "test",
         "cacheableOperations": ["build", "test", "lint", "e2e"]
       }
     }
