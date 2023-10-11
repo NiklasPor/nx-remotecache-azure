@@ -12,8 +12,8 @@ dependencies:
     specifier: ^12.15.0
     version: 12.15.0
   nx-remotecache-custom:
-    specifier: ^5.0.0
-    version: 5.0.0(@nx/workspace@16.10.0)
+    specifier: ^5.0.1
+    version: 5.0.1(@nx/workspace@16.10.0)
 
 devDependencies:
   '@nx/workspace':
@@ -970,8 +970,8 @@ packages:
     dependencies:
       path-key: 3.1.1
 
-  /nx-remotecache-custom@5.0.0(@nx/workspace@16.10.0):
-    resolution: {integrity: sha512-+NKt2yn6Il5l7b1rXnzVJX0mqSAwa7b7allsuy/GEUzBMOzDOtEFmsLak9mCtOYAjeknS53gGHBnsHVF1imbhA==}
+  /nx-remotecache-custom@5.0.1(@nx/workspace@16.10.0):
+    resolution: {integrity: sha512-UgvsnVp4iuQ3hmLdUilzS4bEYfe8kNB8sf9LFk3v9A7iBUy/uUuHmN23SuHlAslq0q5jBb9l3/7TIzRK345NYw==}
     peerDependencies:
       '@nx/workspace': '>=16.9.0'
     dependencies:
