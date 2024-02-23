@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 18.0.0
+
+## Breaking Changes
+
+- Nx support starts at 18.0.0
+
 ## 17.1.1
 
 ### Chore
