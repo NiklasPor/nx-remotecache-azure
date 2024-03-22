@@ -89,6 +89,56 @@ Hash: d3d2bea71ea0f3004304c5cc88cf91be50b02bb636ebbdfcc927626fd8edf1ae
 }
 ```
 
+## Cleanup
+
+Over time, cached items accumulate on the remote storage, potentially leading to uncontrolled growth of storage usage. Failure to clean up outdated items can result in excessive costs. However, you can effectively manage storage usage and costs by configuring Azure storage with lifecycle rules.
+
+To begin, ensure that the last access time of stored items is monitored. Access the `Lifecycle management` section within your storage account and enable monitoring as illustrated below:
+
+![Lifecycle Management Setting](https://github.com/NiklasPor/nx-remotecache-azure/assets/184604/5bd001bb-69f6-4ef8-9212-3ba82cbd62fa)
+
+Next, tailor the rules according to your requirements. For example, consider the following rules that will manage a container named `nx-cache`:
+
+- Blobs not  accessed for 30 days will be moved to cold storage. If accessed again, they will be returned to hot storage.
+- Blobs not accessed at all for 90 days will be automatically deleted.
+
+Configure these rules to strike a balance between cost optimization and access efficiency:
+
+```json
+{
+  "rules": [
+    {
+      "enabled": true,
+      "name": "Cleanup",
+      "type": "Lifecycle",
+      "definition": {
+        "actions": {
+          "baseBlob": {
+            "enableAutoTierToHotFromCool": true,
+            "tierToCool": {
+              "daysAfterLastAccessTimeGreaterThan": 30
+            },
+            "delete": {
+              "daysAfterLastAccessTimeGreaterThan": 90
+            }
+          }
+        },
+        "filters": {
+          "blobTypes": [
+            "blockBlob"
+          ],
+          "prefixMatch": [
+            "nx-cache"
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+More info on [Configure a lifecycle management policy](https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-policy-configure)
+
 ## All Custom Runners
 
 | Runner                                                                     | Storage             |
