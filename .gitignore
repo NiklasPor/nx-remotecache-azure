@@ -5,3 +5,4 @@ index.js
 dist
 .DS_STORE
 .idea
+.nx

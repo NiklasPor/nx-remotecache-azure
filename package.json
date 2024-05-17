@@ -1,6 +1,6 @@
 {
   "name": "nx-remotecache-azure",
-  "version": "18.0.0",
+  "version": "19.0.0",
   "description": "Remote caching for @nrwl/nx using Azure Blob Storage",
   "main": "index.js",
   "typings": "index.d.ts",
@@ -32,16 +32,16 @@
   },
   "homepage": "https://github.com/NiklasPor/nx-remotecache-azure#readme",
   "devDependencies": {
-    "nx": "18.0.0",
+    "nx": "19.0.0",
     "@types/yargs": "^17.0.24",
     "typescript": "^5.1.0"
   },
   "dependencies": {
-    "@azure/identity": "^4.0.1",
-    "@azure/storage-blob": "^12.17.0",
-    "nx-remotecache-custom": "^18.0.0"
+    "@azure/identity": "^4.2.0",
+    "@azure/storage-blob": "^12.18.0",
+    "nx-remotecache-custom": "^19.0.0"
   },
   "peerDependencies": {
-    "nx": "^18.0.0"
+    "nx": "^19.0.0"
   }
 }
