@@ -1,7 +1,17 @@
 [![npm package link](https://img.shields.io/npm/v/nx-remotecache-azure)](https://www.npmjs.com/package/nx-remotecache-azure)
 [![Sponsored by LastBIM](https://img.shields.io/badge/Sponsored_by-LastBIM-6887DA)](https://lastbim.com)
 
-# nx-remotecache-azure
+# The future of `nx-remotecache-*`
+
+Nrwl Nx just introduced us to **Powerpack**. It's the clear successor of the remote cache setup and officially supports custom caching solutions. This will mark the end of the `nx-remotecache-*` packages as custom caching solutions based on the filesystem won't work anymore starting with Nx 21.
+
+Powerpack fills exactly the void that `nx-remotecache-custom` filled. Therefore I'm happy to give this topic back to the creators behind Nx. Thanks for the great ride – we reached over 114,000 weekly downloads on npm as I'm writing this 🥳
+
+Feel free to read the [Introduction to Powerpack](https://nx.dev/blog/evolving-nx#introducing-nx-powerpack) by Jeff yourself. If you have any further questions checkout the pinned GitHub [issue](https://github.com/NiklasPor/nx-remotecache-custom/issues/48).
+
+Cheers, Niklas 👋
+
+## nx-remotecache-azure
 
 A task runner for [@nrwl/nx](https://nx.dev) that uses an Azure Blob Storage as a remote cache. This enables all team members and CI servers to share a single cache. The concept and benefits of [computation caching](https://nx.dev/angular/guides/computation-caching) are explained in the NX documentation.
 
@@ -11,6 +21,8 @@ This package was built with [nx-remotecache-custom](https://www.npmjs.com/packag
 
 |  Nx               | Remote Cache     |
 | ----------------- | ---------------- |
+|  `>= 21`          | `Deprecated`     |
+|  `>= 20.0.0 < 21` | `>= 20.0.0`      |
 |  `>= 19.0.0 < 20` | `>= 19.0.0 < 20` |
 |  `>= 18.0.0 < 19` | `>= 18.0.0 < 19` |
 |  `>= 17.0.0 < 18` | `>= 17.0.0 < 18` |
@@ -100,7 +112,7 @@ To begin, ensure that the last access time of stored items is monitored. Access 
 
 Next, tailor the rules according to your requirements. For example, consider the following rules that will manage a container named `nx-cache`:
 
-- Blobs not  accessed for 30 days will be moved to cold storage. If accessed again, they will be returned to hot storage.
+- Blobs not accessed for 30 days will be moved to cold storage. If accessed again, they will be returned to hot storage.
 - Blobs not accessed at all for 90 days will be automatically deleted.
 
 Configure these rules to strike a balance between cost optimization and access efficiency:
@@ -125,12 +137,8 @@ Configure these rules to strike a balance between cost optimization and access e
           }
         },
         "filters": {
-          "blobTypes": [
-            "blockBlob"
-          ],
-          "prefixMatch": [
-            "nx-cache"
-          ]
+          "blobTypes": ["blockBlob"],
+          "prefixMatch": ["nx-cache"]
         }
       }
     }
