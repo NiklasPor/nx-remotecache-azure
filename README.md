@@ -11,6 +11,9 @@ Feel free to read the [Introduction to Powerpack](https://nx.dev/blog/evolving-n
 
 Cheers, Niklas 👋
 
+## Critical Vulnerability: CVE-2025-36852
+Due to the way remote caching with shared buckets works, cache poisoning is possible via anything that runs pipelines on untrusted code (e.g. a pull request). You can read-up on the vulnerability in [this document](https://nx.app/files/cve-2025-06) from NX or [here](https://nvd.nist.gov/vuln/detail/CVE-2025-36852) on nist. There's **no planned fix** for this vulnerability. I still recommend to use the official solution powerpack by Nx instead.
+
 ## nx-remotecache-azure
 
 A task runner for [@nrwl/nx](https://nx.dev) that uses an Azure Blob Storage as a remote cache. This enables all team members and CI servers to share a single cache. The concept and benefits of [computation caching](https://nx.dev/angular/guides/computation-caching) are explained in the NX documentation.
